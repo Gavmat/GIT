@@ -1,0 +1,98 @@
+@font-face {
+	font-family: LCD5x8H;
+	/* Гарнитура шрифта */
+	src: url(fonts/LCD5x8HRU.ttf) format("truetype");
+	/* Путь к файлу со шрифтом */
+	font-style: normal;
+	font-weight: bold;
+}
+
+body {
+	background-color: #F9F9F6;
+}
+
+input::placeholder {
+	transition: 0.5s;
+	/* Время трансформации */
+	color: #aaa;
+	/* Цвет подсказки */
+}
+
+
+#name {
+	font-family: LCD5x8H;
+	font-size: 70px;
+	align-items: center;
+	margin-bottom: 30px;
+	color: red;
+}
+
+.wrap {
+	text-align: center;
+
+}
+
+.header {
+	display: flex;
+	flex-direction: column;
+	padding-top: 30px;
+	padding-bottom: 40px;
+}
+
+.form {
+	margin: auto;
+
+
+}
+
+#btn>button {
+	width: 200px;
+	height: 30px;
+	margin-top: 3px;
+}
+
+#btn {
+	width: 300px;
+	font-size: 15px;
+	font-family: 'Amatic SC', cursive;
+
+}
+
+#create_field_btn,
+#clear_btn {
+	font-family: 'Amatic SC', bold;
+	font-size: 15px;
+}
+
+#game>div {
+	display: inline-block;
+	overflow: auto;
+
+}
+
+.red {
+	background: red;
+}
+
+
+/* 
+.line div {
+    height: 100px;
+    width: 100px;
+    border: solid black;
+} */
+
+
+/* #game>div {
+    display: inline-block;
+    overflow: auto;
+}
+ */
+
+
+/* #game {
+	padding-top: 30px;
+	width: auto;
+	margin: auto;
+	white-space: nowrap;
+} *
