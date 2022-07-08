@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>mm-cars</title>
+	<link href="https://fonts.googleapis.com/css2?family=Anton&family=Open+Sans&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="css/buy.css">
+</head>
+
+
+<body>
+
+	<div class='container'>
+		<div class='nav'>
+			<div class="nav-logo">
+				<img class="nav-logo__img" src='img/pnglogo.png' alt="">
+			</div>
+
+			<div class="nav-cart">
+				<div class="nav-cart__text">
+					<p>Корзина</p>
+				</div>
+				<div class="nav-cart__img">
+					<img src='img/cart ).svg' alt="" class="cart">
+				</div>
+
+			</div>
+
+
+		</div>
+
+
+		<div class="offer">
+			<div class="offer-container">
+				<div class="container-text">
+
+					<form class="contact_form" action="#" method="post" name="contact_form">
+						<ul>
+							<li>
+								<h2>Заполните форму</h2>
+
+							</li>
+							<li>
+								<label for="name">Имя Фамилия Отчество:</label>
+								<input type="text" placeholder="Иванов Иван Иванович" required />
+							</li>
+							<li>
+								<label for="email">Email:</label>
+								<input type="email" name="email" placeholder="ivanov@yandex.ru" required />
+								<span class="form_hint">Почта в формате "name@something.ru"</span>
+							</li>
+							<li>
+								<label for="tel">Телефон:</label>
+								<input type="tel" name="tel" placeholder="+79998887766" required pattern=" " />
+								<span class="form_hint">нужный формат "+7 999 888 77 66 "</span>
+							</li>
+							<li>
+								<label for="message">Почтовый адрес с индексом:</label>
+								<textarea name="message"
+									placeholder="606407 Нижегородская обл. Балахнинский р-н. Пос. Красный мыс. ул. Садовая. д. 42. кв. 138"
+									cols="20" rows="3" required></textarea>
+
+							</li>
+							<!-- <li>
+								<button class="submit" type="submit">Submit Form</button>
+							</li> -->
+						</ul>
+					</form>
+
+
+					<a id="button" href="" class="button" onclick='blablabla()'>ЗАКАЗАТЬ НАКЛЕЙКУ</a>
+				</div>
+			</div>
+
+		</div>
+
+
+		<div id='blablabla'>
+			<form role="form" action="/requestFine" autocomplete="off" method="POST">
+				<label>Ім'я:</label>
+				<input type="text" name="nameReq">
+				<label>Прізвище:</label>
+				<input type="text" name="lastNameReq">
+				<label>Телефон:</label>
+				<input type="text" name="telReq">
+				<label>Опис:</label>
+				<input type="text" name="textReq">
+				<button type="submit" class="btn btn-success">Отправить</button>
+			</form>
+		</div>
+
+
+		<footer class="footer">
+			<div class="footer-container">
+
+
+
+
+				<div class="footer__social">
+					<a class="footer__social-link" href="https://www.youtube.com/channel/UC7vWYwHr2alYklF5Q94KgzA">
+						<img src="img/youtube-svgrepo-com.svg" alt="">
+					</a>
+					<a class="footer__social-link" href="https://teleg.run/mm_cars">
+						<img src="img/telegram-svgrepo-com.svg" alt="">
+					</a>
+					<a class="footer__social-link" href="https://vk.com/michaelmerikin">
+						<img src="img/vk-svgrepo-com.svg" alt="">
+					</a>
+
+				</div>
+
+
+				<div class="footer__contacts">
+					<a class="footer__mail" href="mailto:mihamerikin@gmail.com">mihamerikin@gmail.com</a>
+
+					<a class="footer__info" href="information.html">Информация</a>
+
+					<a class=" footer__oferta" href="oferta.html">Оферта</a>
+
+					<a class="footer__text" href="privacy-policy.html">Политика конфиденциальности</a>
+
+				</div>
+
+
+
+
+
+
+			</div>
+		</footer>
+	</div>
+	<script src="js/main.js"></script>
+</body>
+
+</html>
