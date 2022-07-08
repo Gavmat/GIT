@@ -35,37 +35,3 @@ document.getElementById("create_field_btn").addEventListener('click', () => {
 
 
 
-
-// let NUM_COLS = +prompt('введите количество колонок?', 3);
-// let NUM_ROWS = +prompt('введите количество строк?', 3);
-
-
-
-
-
-// let grid = document.getElementById('container');
-
-
-// for (let i = 0; i < NUM_ROWS; i++) {
-//     let row = createRow();
-//     for (let k = 0; k < NUM_COLS; k++) {
-//         createElement(row);
-//     };
-// };
-
-// function createRow() {
-//     let grid = document.getElementById('grid');
-//     let row = document.createElement('div');
-//     // row.className = "row";
-//     grid.appendChild(row);
-//     return row;
-// }
-
-// function createElement(grid) {
-//     let elem = document.createElement('div');
-//     elem.className = "elem";
-//     grid.appendChild(elem);
-// }
-
-
-
