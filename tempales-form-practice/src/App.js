@@ -36,7 +36,7 @@ class App extends Component {
             name="firstName"
             value={this.state.firstName}
             onChange={this.handleChange}
-            placeholder="First Name"
+            placeholder="Закон матвея"
           />
           <br />
 
