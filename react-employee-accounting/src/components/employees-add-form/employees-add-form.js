@@ -8,7 +8,9 @@ class EmployeesAddForm extends Component {
         this.state = {
             name: '',
             salary: '',
+
         }
+
     }
 
     onValueChange = (e) => {
@@ -17,21 +19,51 @@ class EmployeesAddForm extends Component {
             [name]: value
         })
 
-
     }
-
     handleSubmit = (e) => {
-
         e.preventDefault();
-
-        console.log(`Form submitted`);
-
+        this.props.onAdd(this.state.name, this.state.salary);
+        this.setState({
+            name: '',
+            salary: ''
+        })
     }
+
+    // handleSubmit = (e) => {
+    //     e.preventDefault()
+    //     console.log('имя ' + this.props.state.name)
+    //     console.log('zp ' + this.props.state.salary)
+    //     this.setState({
+
+    //         name: this.props.state.name,
+    //         salary: this.props.state.salary,
+    //     });
+    // }
+
+
+
+    // handleSubmit = (e) => {
+
+    //     e.preventDefault();
+    //     this.setState
+    //     console.log(e)
+    //     this.props.addItem('123', '321');
+    // }
+
+
+    // onSubmit = (e) => {
+    //     e.preventDefault();
+    //     this.props.onAdd(this.state.name, this.state.salary);
+    //     this.setState({
+    //         name: '',
+    //         salary: ''
+    //     })
+    // }
 
 
     render() {
         return (
-            <div className="app-add-form">
+            <div className="app-add-form" >
                 <h3>Добавьте нового сотрудника</h3>
                 <form onSubmit={this.handleSubmit}
                     className="add-form d-flex">
@@ -49,11 +81,12 @@ class EmployeesAddForm extends Component {
                         onChange={this.onValueChange} />
 
                     <button type="submit"
+
                         className="btn btn-outline-light"
 
                     >Добавить</button>
                 </form>
-            </div>
+            </div >
         )
 
     }

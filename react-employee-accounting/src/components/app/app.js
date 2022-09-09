@@ -20,7 +20,7 @@ class App extends Component {
             ]
 
         }
-        this.maxId = 4;
+        this.maxId = 5;
 
     }
 
@@ -32,12 +32,22 @@ class App extends Component {
         })
     }
 
-    addItem = (text) => {
-        console.log(text);
-    };
+    addItem = (name, salary) => {
+        const newItem = {
+            name,
+            salary,
+            increase: false,
+            id: this.maxId++
+        }
+        // this.setState(({ data }) => {
+        //     const newArr = [...data, newItem];
+        //     return {
+        //         data: newArr
+        //     }
+        // });
 
-
-
+        this.setState({ data: [...this.state.data, newItem] });
+    }
 
 
     render() {
@@ -49,7 +59,8 @@ class App extends Component {
                     <AppFilter />
                 </div>
                 <EmployeesList data={this.state.data} onDelete={this.deleteItem} />
-                <EmployeesAddForm OnAddItem={this.addItem} />
+                <EmployeesAddForm
+                    onAdd={this.addItem} />
             </div>
         );
 
