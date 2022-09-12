@@ -20,8 +20,12 @@ class EmployeesAddForm extends Component {
         })
 
     }
+
     handleSubmit = (e) => {
         e.preventDefault();
+        // условие, чтобы невозможно было добавлять пустого пользователя 
+        if (this.state.name.length < 3 || !this.state.salary) return;
+
         this.props.onAdd(this.state.name, this.state.salary);
         this.setState({
             name: '',
