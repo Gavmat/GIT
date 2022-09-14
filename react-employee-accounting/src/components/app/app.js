@@ -21,7 +21,7 @@ class App extends Component {
 
             // пишем для строки поиска новое состояние. Дальше этот стейт мы используем в render 
             term: '',
-            filter: '',
+            filter: 'all',
         }
         this.maxId = 5;
 
@@ -192,6 +192,26 @@ class App extends Component {
     }
 
 
+    // Напишем метод по изменению зарплаты через инпут рядом с именем каждого сотрудника.
+
+    // В employer-list - item  перепишес все на классовый компонент потому что есть стейт.
+    // и напишем   соответствующую функцию.  
+    //  onSalaryChange = (e) => {
+
+
+
+    onSalaryChange = (name, salary) => {
+        this.setState((state) => ({
+            data: state.data.map(item => {
+                if (item.name === name) {
+                    return { ...item, salary }
+                }
+                return item;
+            })
+        }))
+    }
+
+
     render() {
         const { data, term, filter } = this.state;
         const employees = this.state.data.length;
@@ -225,6 +245,7 @@ class App extends Component {
                     onDelete={this.deleteItem}
                     onToggleIncrease={this.onToggleIncrease}
                     onToggleRise={this.onToggleRise}
+                    onSalaryChange={this.onSalaryChange}
                 />
                 <EmployeesAddForm
                     onAdd={this.addItem} />
