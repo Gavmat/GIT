@@ -2,20 +2,32 @@
 import { Component } from 'react';
 import './employees-add-form.css';
 
+
+// Этот компонент, когда работает с инпутами проходит след этапы:
+// Импут запускает событие Onchange
+// запускает метод onValueChangeб и setState в нем изменяет состояние и записывает в стейт.
+// setState запускает render, чтобы перерисовать состояние компонента и усли value стоит в том же ключе что и стейт
+// то в value записывается актуальное значение этого компонента.
+
 class EmployeesAddForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
             name: '',
             salary: '',
-
         }
-
     }
-
+    //     Навешиваем обработчик события на input Onchange. В него входит метод onValueChange.
+    // Когда событие срабатывает мы берем то, что написано внутри инпута(те это event.target.value)
+    // и записываем это в нужный стейт
+    // Метод принимает аргумент объекта события event 
     onValueChange = (e) => {
         const { name, value } = e.target
         this.setState({
+            // таким образом мы можем достучаться до атрибута name на котором происходит событие
+            // [e.target.name]: e.target.value и он будет заменен на строку которая 
+            // записана в атрибуте и заменен на стейт
+
             [name]: value
         })
 
@@ -33,38 +45,6 @@ class EmployeesAddForm extends Component {
         })
     }
 
-    // handleSubmit = (e) => {
-    //     e.preventDefault()
-    //     console.log('имя ' + this.props.state.name)
-    //     console.log('zp ' + this.props.state.salary)
-    //     this.setState({
-
-    //         name: this.props.state.name,
-    //         salary: this.props.state.salary,
-    //     });
-    // }
-
-
-
-    // handleSubmit = (e) => {
-
-    //     e.preventDefault();
-    //     this.setState
-    //     console.log(e)
-    //     this.props.addItem('123', '321');
-    // }
-
-
-    // onSubmit = (e) => {
-    //     e.preventDefault();
-    //     this.props.onAdd(this.state.name, this.state.salary);
-    //     this.setState({
-    //         name: '',
-    //         salary: ''
-    //     })
-    // }
-
-
     render() {
         return (
             <div className="app-add-form" >
@@ -73,9 +53,14 @@ class EmployeesAddForm extends Component {
                     className="add-form d-flex">
                     <input type="text"
                         className="form-control new-post-label"
+                        //     value со значением стейта добавляется для того, чтобы react рендерил форму и
+                        // контролировал ее поведение на пользовательский ввод
                         value={this.state.name}
                         placeholder="Как его зовут?"
                         name='name'
+                        // называем так, чтобы эти названия атрибута совпадали с 
+                        // названием стейта. Тогда в метода можно записать 
+                        // e.target.name: e.target.value
                         onChange={this.onValueChange} />
                     <input type="number"
                         className="form-control new-post-label"
