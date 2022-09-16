@@ -2,19 +2,23 @@
 import { Component } from 'react';
 import './randomChar.scss';
 import mjolnir from '../../resources/img/mjolnir.png';
-
+import MarvelService from '../../services/MarvelServiсe';
 
 // внутри компонента будет состояние, тк когда мы будем делать запрос - нужно
 // будет данные где то сохранять.Тем более данные будут меняться по клику на кнопку
 // поэтому делаем компонент - классовым.
 class RandomChar extends Component {
+    constructor(props) {
+        super(props);
+        this.updateChar();
+    }
 
 
     state = {
         //    первоначально name: null, потому что когда приложение будет загружаться
         // они ничего не будет знать о данных 
         name: null,
-        discription: null,
+        description: null,
         // картинка превьюшка
         thumbnail: null,
         homepage: null,
@@ -23,7 +27,27 @@ class RandomChar extends Component {
     // Эта запись означает, что мы создаем новое свойство внутри класса randomChar
     // те this.MarvelService с помещением туда нового конструктора.
     // те теперь в классе будет существовать новое свойство -this.MarvelService
-    marvelService = new MarvelService()
+    marvelService = new MarvelService();
+    // теперь этот сервис используем и пишем метод который будет обращаться к серверу, 
+    // получать данные и записывать это в стейт
+    // пишем метод, который будет обновлять персонажа. Используем стрелочную функцию чтобы не терять контекст.
+
+    updateChar = () => {
+        // обращаемся к marvelService и вызываем один из его методов. Нам нужен один персонаж.Этот персонаж
+        // должен получаться по какому то персон-му идентификатору id . Реализуем случайный id
+        // floor - округляет до целого числа. так все id - целые числа.
+        const id = Math.floor(Math.random() * (1010789 - 1009146) + 1009146)
+        // const id = 1009664;
+
+        this.marvelService
+            .getCharacter(id)
+            // далее результат нам нужно обработать
+            .then(res => {
+                //полученный объект сразу передаем в сетстейт
+                this.setState(res)
+            })
+
+    }
 
 
     render() {
