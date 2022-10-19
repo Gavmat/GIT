@@ -38,7 +38,11 @@ class MarvelService {
 
 
     getAllCharacters = async () => {
+        // переменная res будет получать данные по запросу
         const res = await this.getResource(`${this._apiBase}characters?limit=9&offset=210&${this._apiKey}`);
+        // когда данные получены и записаны в res , мы можем их вернуть но уже в модифицированном виде.
+        // res - это большой объект, в котором есть массив с нашими результатами. Он содержится по адвресу res.data.results
+        // так как это массив, то его можно замэпить.
         return res.data.results.map(this._transformCharacter);
     }
 
