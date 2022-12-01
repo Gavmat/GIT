@@ -1,5 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
+import moduleName from '../../assets/db.json'
+
 // import axios from 'axios';
 
 // import removeSvg from '../../assets/img/remove.svg';
@@ -9,10 +11,10 @@ import classNames from 'classnames';
 import './List.scss';
 
 
-const List = ({ items, isRemovable }) => {
+const List = ({ items, isRemovable, onClick }) => {
 
   return (
-    <ul className="list">
+    <ul onClick={onClick} className="list">
       {items.map((item, index) => (
         <li key={index}
           className={classNames(item.className, { 'active': item.active })}>
