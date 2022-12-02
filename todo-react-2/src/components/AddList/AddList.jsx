@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import List from '../List/List';
 import './AddList.scss';
+import Badge from '../Badge';
 
 
 
-const AddList = () => {
+const AddList = ({ colors }) => {
     // условия для отображения формы popup
 
-    const [visiblePopup, setVisiblePopup] = useState(false);
+    const [visiblePopup, setVisiblePopup] = useState(true);
 
     return (
         <div className='add-list'>
@@ -33,7 +34,15 @@ const AddList = () => {
             {/* условие && - для отображения формы popup  */}
 
             {visiblePopup && <div className='add-list__popup'>
-                <input className='field' type="text" placeholder='Название папки' />
+                <input className='field' type="text" placeholder='Название списка' />
+                <div className='add-list__popup-colors'>
+                    {colors.map(color => (
+                        <Badge key={color.id} color={color.name} />
+                    ))
+
+                    }
+
+                </div>
                 <button className='button'>Добавить</button>
 
             </div>}

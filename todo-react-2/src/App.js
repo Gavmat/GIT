@@ -2,6 +2,7 @@
 import React from "react";
 import List from "./components/List/List";
 import AddList from './components/AddList/AddList'
+import DB from './assets/db.json'
 
 
 function App() {
@@ -52,8 +53,8 @@ function App() {
 
         />
 
-
-        <AddList />
+        {/* передаем через пропсы цвета из базы данных для popup формы */}
+        <AddList colors={DB.colors} />
 
 
       </div>
